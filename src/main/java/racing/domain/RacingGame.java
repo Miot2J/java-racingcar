@@ -13,19 +13,19 @@ public class RacingGame {
         this.cars = cars;
     }
 
-    public void repeatMoveCars(int count) {
+    public void repeatMoveCars(int count,MoveConditionStrategy moveConditionStrategy) {
         for (int i = 0; i < count; i++) {
-            moveCars();
+            moveCars(moveConditionStrategy);
         }
     }
 
-    private void moveCars() {
+    private void moveCars(MoveConditionStrategy moveConditionStrategy) {
         for (Car car : this.cars) {
-            car.move();
+            car.move(moveConditionStrategy);
         }
     }
 
-    public List<Car> findWinner() {
+    public List<Car> findWinners() {
         List<Car> winnerCars = new ArrayList<>();
         int winnerPosition = findWinnerPosition();
 

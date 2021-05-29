@@ -2,7 +2,7 @@ package racing.domain;
 
 import racing.utils.RandomNumber;
 
-public class NumberIsBiggerStrategy implements MoveConditionStrategy {
+public class RandomMoveConditionStrategy implements MoveConditionStrategy {
     private static final int MOVE_CONDITION = 4;
 
     @Override

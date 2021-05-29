@@ -4,13 +4,14 @@ public class Car {
     private static final int VALIDATED_NAME_LENGTH = 5;
     private static final int MOVED_DISTANCE = 1;
     private static final int NOT_MOVED_DISTANCE = 0;
+    private static final int INITIAL_DISTANCE = 0;
 
     private String name;
     private DistanceLog distanceLog;
     private MoveConditionStrategy moveConditionStrategy;
 
     public Car(String name, MoveConditionStrategy moveConditionStrategy) {
-        this(name, moveConditionStrategy, 0);
+        this(name, moveConditionStrategy, INITIAL_DISTANCE);
     }
 
     public Car(String name, MoveConditionStrategy moveConditionStrategy, int initDistance) {
@@ -26,11 +27,11 @@ public class Car {
         }
     }
 
-    public void move() {
-        distanceLog.addDistanceLog(createMovedDistance());
+    public void move(MoveConditionStrategy moveConditionStrategy) {
+        distanceLog.addDistance(createMovedDistance(moveConditionStrategy));
     }
 
-    private int createMovedDistance() {
+    private int createMovedDistance(MoveConditionStrategy moveConditionStrategy) {
         boolean canMove = moveConditionStrategy.isMovable();
         if (canMove) {
             return MOVED_DISTANCE;

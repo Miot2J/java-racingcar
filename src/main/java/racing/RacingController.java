@@ -2,7 +2,7 @@ package racing;
 
 import racing.domain.Car;
 import racing.domain.MoveConditionStrategy;
-import racing.domain.NumberIsBiggerStrategy;
+import racing.domain.RandomMoveConditionStrategy;
 import racing.domain.RacingGame;
 import racing.view.Input;
 import racing.view.Output;
@@ -17,17 +17,17 @@ public class RacingController {
         String carName = Input.makeCarNames();
         String[] carNames = carName.split(SEPARATOR);
 
-        MoveConditionStrategy moveConditionStrategy = new NumberIsBiggerStrategy();
+        MoveConditionStrategy moveConditionStrategy = new RandomMoveConditionStrategy();
         List<Car> cars = makeCars(carNames, moveConditionStrategy);
 
         RacingGame racingGame = new RacingGame(cars);
         int repeatCount = Input.makeGameRepeatCount();
-        racingGame.repeatMoveCars(repeatCount);
+        racingGame.repeatMoveCars(repeatCount,moveConditionStrategy);
 
         Output.printResultMessage();
         Output.printResultByMovedLog(racingGame, repeatCount);
 
-        Output.printWinMessage(racingGame.findWinner());
+        Output.printWinMessage(racingGame.findWinners());
     }
 
     private static List<Car> makeCars(String[] carNames, MoveConditionStrategy moveConditionStrategy) {
