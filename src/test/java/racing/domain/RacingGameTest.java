@@ -16,7 +16,7 @@ public class RacingGameTest {
 
     @BeforeEach
     void beforeEach() {
-        moveConditionStrategy = new NumberIsBiggerStrategy();
+        moveConditionStrategy = new RandomMoveConditionStrategy();
     }
 
     @DisplayName("첫번째 자동차인 aaa가 움직이면 우승차는 aaa 1대")
@@ -31,10 +31,10 @@ public class RacingGameTest {
                 new Car("eee", moveConditionStrategy, 0)
         );
         RacingGame racingGame = new RacingGame(cars);
-        cars.get(0).move();
+        cars.get(0).move(() -> true);
 
         //when
-        List<Car> winnerList = racingGame.findWinner();
+        List<Car> winnerList = racingGame.findWinners();
 
         //then
         assertAll(
@@ -57,7 +57,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame(cars);
 
         //when
-        List<Car> winnerList = racingGame.findWinner();
+        List<Car> winnerList = racingGame.findWinners();
 
         //then
         assertThat(winnerList.size()).isEqualTo(5);
