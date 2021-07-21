@@ -7,10 +7,10 @@
 ----
 ## 자동차 경주 코드 리뷰를 하며 배운점
 ----
-### https://velog.io/@miot2j/Code-Review-NEXTSTEP-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%ED%9B%84%EA%B8%B0
 ###  ↑블로그 정리 링크↑
+### https://velog.io/@miot2j/Code-Review-NEXTSTEP-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%ED%9B%84%EA%B8%B0
 ----
-
+### 요약
 * Google Java Style Guide를 준수하며 코드네이밍과 코드를 작성하자
 * 메서드 배치를 형식에 맞게 하자(컨벤션에 맞게 작성하기)
 * 메서드를 분리 하자 (한가지 기능만 하자, SRP)
